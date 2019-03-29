@@ -1,5 +1,4 @@
-# ROS Beginner level
-# Creating Custom message
+# Working with Custom messages
 
 In this project I have created a custom message called IoTSensor.msg and made a node IoT_publisher which will continously publish the message and created another node IoT_subscriber which will subcribe to the following message.
 
