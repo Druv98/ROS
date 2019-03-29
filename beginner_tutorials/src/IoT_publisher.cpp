@@ -1,9 +1,10 @@
 #include "ros/ros.h"
 #include "beginner_tutorials/IoTSensor.h"
+// The format for inclduing custom messages is #include "package_name/custom_msg.h"
 
 
 // *
-//  * This tutorial demonstrates simple sending of messages over the ROS system.
+//  * This tutorial demonstrates simple sending of custom messages over the ROS system.
 int main(int argc, char **argv)
 {
   /**
@@ -43,9 +44,6 @@ int main(int argc, char **argv)
    * buffer up before throwing some away.
    */
   ros::Publisher IoTSensor_pub = n.advertise<beginner_tutorials::IoTSensor>("IoTSensor_publisher_topic", 1000);
-  // ros::Publisher IoTSensor_pub = n.advertise<IoTSensor::float>("IoTSensor publisher node", 1000);
-  // ros::Publisher IoTSensor_pub = n.advertise<IoTSensor::string>("IoTSensor publisher node", 1000);
-  // ros::Publisher IoTSensor_pub = n.advertise<IoTSensor::float>("IoTSensor publisher node", 1000);
 
   ros::Rate loop_rate(10);
 
@@ -66,11 +64,7 @@ int main(int argc, char **argv)
     msg.humidity=10;
     msg.id=count;
     
-    // ROS_INFO("%d", msg.id);
-    // ROS_INFO("%s[]", msg.name);
-    // ROS_INFO("%.2f", msg.temperature);
-    // ROS_INFO("%.2f", msg.humidity);
-    std::cout<<"Message id:"<<(int)msg.id<<"Name of the message"<<msg.name<<"Temperature and Humidity: "<<msg.temperature<<msg.humidity<<std::endl;
+    std::cout<<"Message id:"<<(int)msg.id<<"Name of the message"<<msg.name<<"Temperature--Humidity: "<<msg.temperature<<"--"<<msg.humidity<<std::endl;
     /**
      * The publish() function is how you send messages. The parameter
      * is the message object. The type of this object must agree with the type
