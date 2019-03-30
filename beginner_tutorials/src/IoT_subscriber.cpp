@@ -1,6 +1,6 @@
 #include "ros/ros.h"
 #include "beginner_tutorials/IoTSensor.h"
-
+// The format for inclduing custom messages is #include "package_name/custom_msg.h"
 
 void iot_sensor_Callback(const beginner_tutorials::IoTSensor::ConstPtr& msg)
 {
