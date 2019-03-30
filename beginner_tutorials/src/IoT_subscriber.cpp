@@ -1,12 +1,9 @@
 #include "ros/ros.h"
 #include "beginner_tutorials/IoTSensor.h"
 
-/**
- * This tutorial demonstrates simple receipt of messages over the ROS system.
- */
+
 void iot_sensor_Callback(const beginner_tutorials::IoTSensor::ConstPtr& msg)
 {
-  // ROS_INFO("new IoT sensor data received: [%d,%s,%.2f,%.2f]", msg->id,msg->name,msg->temperature,msg->humidity);
     std::cout<<"Message received is of ID "<<(int)msg->id<<"Name of the message "<<msg->name<<"Temperature and Humidity: "<<msg->temperature<<" "<<msg->humidity<<std::endl;
 }
 
