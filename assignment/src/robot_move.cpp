@@ -1,15 +1,13 @@
 #include "ros/ros.h"
 #include <geometry_msgs/Twist.h>
 #include <stdlib.h>
-// #include <turtlesim/Pose.h>
-/**
- * This tutorial demonstrates simple sending of messages over the ROS system.
- */
 
-void filterVelocityCallback(const geometry_msgs::Twist& msg){
-if (msg.angular.z > 0 || msg.linear.z>0|| msg.linear.y>0|| msg.linear.x>0){
-ROS_INFO_STREAM("Subscriber velocities:"<<" linear="<<msg.linear.x<<" angular="<<msg.angular.z);
-}
+void filterVelocityCallback(const geometry_msgs::Twist& msg)
+{
+  if (msg.angular.z > 0 || msg.linear.z>0|| msg.linear.y>0|| msg.linear.x>0) 
+  {
+    ROS_INFO_STREAM("Subscriber velocities:"<<" linear="<<msg.linear.x<<" angular="<<msg.angular.z);
+  }
 }
 
 int main(int argc, char **argv)
@@ -70,7 +68,6 @@ ros::Publisher speed_pub = n.advertise<geometry_msgs::Twist>("turtle1/pose", 100
 
     speed_pub.publish(msg);
 
-    // ROS_INFO_STREAM("Sending random velocity command:"<<" linear="<<msg.linear.x<<" angular="<<msg.angular.z);
     ROS_INFO_STREAM("Filtered velocities:"<<" linear="<<msg.linear.x<<" angular="<<msg.angular.z);
 
     /**
